@@ -1,0 +1,29 @@
+<div class="container-fluid" >
+  <h2 class="text-center">The Ladder of AFL Team in 2020</h2>
+  <br>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Team ID</th>
+        <th scope="col">Team Name</th>
+        <th scope="col">Win Percentage</th>
+        <th scope="col">Rank</th>
+        <th scope="col">Update Time</th>
+        <th></th>
+      </tr>
+    </thead>
+    <script>
+      {{ladder| orderBy}}
+    </script>
+    <tbody>
+      <tr *ngFor = " let game of ladder ">
+        <td scope="row">{{game.teamid}}</td>
+        <td>{{game.team}}</td>
+        <td>{{game.percentage}}</td>
+        <td>{{game.rank}}</td>
+        <td>{{game.updated}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
