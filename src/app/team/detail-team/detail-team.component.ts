@@ -9,6 +9,7 @@ import { Team } from '../../team';
   styleUrls: ['./detail-team.component.css']
 })
 export class DetailTeamComponent implements OnInit {
+  //input to Parent component
   @Input() team: Team;
   constructor() { }
 

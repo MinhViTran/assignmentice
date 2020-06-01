@@ -14,6 +14,7 @@ export class Next5GameComponent implements OnInit {
   private sub: any;
   nonCompletes:NonComplete[];
 
+  //get Api of nonCompletes from dataService 
   constructor(private route: ActivatedRoute, private dataService: DataServiceService) { }
   getApi(): void {
     this.dataService.getNonCompletes().subscribe(temp => { 
@@ -23,6 +24,7 @@ export class Next5GameComponent implements OnInit {
   }
 
   ngOnInit() {
+    //tranfer String Id to number
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
    });

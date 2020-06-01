@@ -21,6 +21,7 @@ export class HeadToHeadComponent implements OnInit {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
+      //tranfer the string ID and hID to number
       this.id = +params['id']; 
       this.hId = +params['hId']; 
    });
@@ -28,6 +29,7 @@ export class HeadToHeadComponent implements OnInit {
    this.getApi();
 
   }
+  //collect the aId and hId from dataService to create Head to head team 
   getApi(): void {
     this.dataService.getNonCompletes().subscribe(temp => { 
       this.nonCompletes = temp.filter((team) => ((team.hteamid === this.id && team.ateamid === this.hId) || (team.ateamid === this.id && team.hteamid === this.hId)));

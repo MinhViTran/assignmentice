@@ -16,6 +16,7 @@ export class SourceComponent implements OnInit {
   ngOnInit() {
     this.getSource();
   }
+  //get Api of Source from dataService
   getSource(): void{
     this.dataService.getSource().subscribe(temp =>{this.source = temp;});
   }

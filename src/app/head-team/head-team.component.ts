@@ -16,13 +16,14 @@ export class HeadTeamComponent implements OnInit {
   constructor(private route: ActivatedRoute, private dataService: DataServiceService) { }
 
   ngOnInit() {
+    //tranfer string ID to number
     this.sub = this.route.params.subscribe(params => {
-      this.id = +params['id']; // (+) converts string 'id' to a number
-      // In a real app: dispatch action to load the details here.
+      this.id = +params['id']; 
    });
 
    this.getTeams();
   }
+  //Collect the ID from dataservice 
   getTeams(): void {
     this.dataService.getTeams().subscribe(temp => { this.teams = temp.filter((team) => team.id !== this.id); });
   }

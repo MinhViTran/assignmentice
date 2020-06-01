@@ -15,7 +15,7 @@ export class ResultComponent implements OnInit {
   private sub: any;
   nonCompletes:NonComplete[];
 
-  
+  //get Api of nonCompletes from dataService
   getApi(): void {
     this.dataService.getNonCompletes().subscribe(temp => { 
       this.nonCompletes = temp.filter((team) => (team.hteamid === this.id || team.ateamid === this.id));
@@ -23,7 +23,7 @@ export class ResultComponent implements OnInit {
     }); 
   }
   ngOnInit() {
-
+    //tranfer string Id to number
     this.sub = this.route.params.subscribe(params => {
        this.id = +params['id'];
     });

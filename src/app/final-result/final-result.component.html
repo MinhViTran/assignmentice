@@ -1,21 +1,27 @@
 <div class="container-fluid">
-  <a class="btn btn-primary" routerLink="/teams/{{id}}"><</a>
-  <h1 class="text-center">Results</h1>
-  <table class="table">
-    <tr class="thead-dark">
-      <th scope="col">ID</th>
-      <th >Team A</th>
-      <th>Score</th>
-      <th>ID</th>
-      <th>Team B</th>
-      <th>Score</th>
-      <th>Round</th>
-      <th>Winner</th>
-      <th>Date And Time</th>
-    </tr>
+  <h2 class="text-center font-weight-bold text-uppercase text-white "
+    style="background-color: rgba(2,52,125,0.9); height: 100px; line-height: 90px;">
+    <i class="fa fa-bullseye" aria-hidden="true"></i>
+    Result of your team
+  </h2>
+  <table class="table table-borderless text-center ">
+    <thead style="color: rgb(2,60,145);">
+      <tr  class="border-bottom" style="border-color: rgba(2,60,145,0.7);box-shadow: 0px 5px;">
+        <th scope="col">ID</th>
+        <th>Team A</th>
+        <th>Score</th>
+        <th>ID</th>
+        <th>Team B</th>
+        <th>Score</th>
+        <th>Round</th>
+        <th>Winner</th>
+        <th>Date And Time</th>
+      </tr>
+    </thead>
+
     <tr *ngFor="let game of completes">
       <td scope="row">{{game.ateamid}}</td>
-      <td >{{game.ateam}}</td>
+      <td>{{game.ateam}}</td>
       <td>{{game.ascore}}</td>
       <td>{{game.hteamid}}</td>
       <td>{{game.hteam}}</td>

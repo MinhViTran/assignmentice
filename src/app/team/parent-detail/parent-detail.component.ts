@@ -16,12 +16,14 @@ export class ParentDetailComponent implements OnInit {
   
   constructor(private route: ActivatedRoute, private dataService:DataServiceService) { }
 
+  //tranfer string ID to number
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
    });
     this.getAFLTeam();
   }
+  //get Api of team from dataService
   getAFLTeam(): void {
     this.dataService.getTeams().subscribe(temp => { 
       this.team = temp.find((team) => team.id === this.id);

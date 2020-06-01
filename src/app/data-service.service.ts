@@ -3,7 +3,7 @@ import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Team } from './team';
-import { Tip } from './tip';
+
 import { NonComplete } from './nonComplete';
 import { Complete } from './complete';
 import { Ladder } from './ladder';
@@ -20,6 +20,7 @@ export class DataServiceService {
 
   }
   constructor(private http: HttpClient) { }
+  // Collect the data of team from service squiggle api
   getTeams(): Observable<Team[]> {
 
     return this.http.get('https://api.squiggle.com.au/?q=teams').pipe(
@@ -31,6 +32,7 @@ export class DataServiceService {
       )))
     );
   }
+  // Collect the ladder of team from service squiggle api
   getLadder(): Observable<Ladder[]> {
 
     return this.http.get('https://api.squiggle.com.au/?q=ladder').pipe(
@@ -50,33 +52,7 @@ export class DataServiceService {
       )))
     );
   }
-  getTips(): Observable<Tip[]> {
-
-    return this.http.get('https://api.squiggle.com.au/?q=tips;year=2020;complete=0').pipe(
-      map((data: any) => data.tips.map((item: any) => new Tip(
-        item.confidence,
-        item.bits,
-        item.gameid,
-        item.ateamid,
-        item.venue,
-        item.year,
-        item.correct,
-        item.date,
-        item.updated,
-        item.hteam,
-        item.tipteamid,
-        item.margin,
-        item.err,
-        item.tip,
-        item.ateam,
-        item.source,
-        item.sourceid,
-        item.hconfidence,
-        item.hteamid,
-        item.round
-      )))
-    );
-  }
+// Collect the non complete game of team from service squiggle api
   getNonCompletes(): Observable<NonComplete[]> {
 
     return this.http.get('https://api.squiggle.com.au/?q=tips;year=2020;complete=0;source=1').pipe(
@@ -105,9 +81,10 @@ export class DataServiceService {
     );
 
   }
+  // Collect the complete game of team from service squiggle api
   getCompletes(): Observable<Complete[]>{
 
-    return this.http.get('https://api.squiggle.com.au/?q=games;year=2020;complete=100').pipe(
+    return this.http.get('https://api.squiggle.com.au/?q=games;year=2019;complete=100').pipe(
       map((data:any) => data.games.map((item:any)=>new Complete(
         item.complete,
         item.is_grand_final,
@@ -135,6 +112,7 @@ export class DataServiceService {
     );
 
   }
+
   getSource(): Observable<Source[]>{
 
     return this.http.get('https://api.squiggle.com.au/?q=sources').pipe(

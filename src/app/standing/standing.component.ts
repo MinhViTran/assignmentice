@@ -16,6 +16,7 @@ export class StandingComponent implements OnInit {
   ngOnInit() {
     this.getStanding();
   }
+  //get Api of standing from dataService
   getStanding(): void{
     this.dataService.getStanding().subscribe(temp =>{this.standing = temp;});
   }

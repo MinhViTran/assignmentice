@@ -18,6 +18,7 @@ export class LadderComponent implements OnInit {
   ngOnInit() {
     this.getLadder();
   }
+  // get API of ladder from dataservice
   getLadder(): void{
     this.dataService.getLadder().subscribe(temp =>{this.ladder = temp;});
    
