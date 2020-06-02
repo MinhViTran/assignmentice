@@ -1,20 +1,22 @@
 <div class="card-header  border-bottom border-dark d-flex justify-content-center">
-  Minh Vi Tran-18827177        Van Dinh-19955997
+  Minh Vi Tran-18827177 Van Dinh-19955997
 </div>
 
 
-<div class=" nav sticky-top font-weight-bold text-uppercase">
+<div class="font-weight-bold text-uppercase">
   <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color:rgb(5,41,82); height: 80px;;">
-      <a class="navbar-brand " routerLink="home"><i class="fa fa-university" aria-hidden="true"></i> Latrobe Football</a>
-      <button 
-  class="navbar-toggler btn btn-outline-primary" 
-  type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"  
-  aria-expanded="false" aria-label="Toggle navigation"
-   (click)="isCollapsed = !isCollapsed" 
-   [attr.aria-expanded]="!isCollapsed" aria-controls="navbarToggleExternalContent">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <nav class="nav navbar navbar-expand-lg navbar-dark navbar-top"
+      style="background-color:rgb(5,41,82); height: auto;;">
+
+      <a class="navbar-brand " routerLink="home"><i class="fa fa-university" aria-hidden="true"></i> Latrobe
+        Football</a>
+      <button class="navbar-toggler btn btn-outline-primary" type="button" data-toggle="collapse"
+        data-target="#navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation"
+        (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+        aria-controls="navbarToggleExternalContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
 
       <div class="collapse navbar-collapse" id="navbarToggleExternalContent" [ngbCollapse]="isCollapsed">
         <ul class="navbar-nav mr-auto">
@@ -34,7 +36,10 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="source">Source</a>
           </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" routerLink="aboutUs">About Us</a>
+          </li>
+
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

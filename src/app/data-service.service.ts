@@ -8,7 +8,7 @@ import { NonComplete } from './nonComplete';
 import { Complete } from './complete';
 import { Ladder } from './ladder';
 import { Source } from './souce';
-import { Standing} from './standings';
+import { Standing } from './standings';
 
 
 @Injectable({
@@ -52,7 +52,7 @@ export class DataServiceService {
       )))
     );
   }
-// Collect the non complete game of team from service squiggle api
+  // Collect the non complete game of team from service squiggle api
   getNonCompletes(): Observable<NonComplete[]> {
 
     return this.http.get('https://api.squiggle.com.au/?q=tips;year=2020;complete=0;source=1').pipe(
@@ -82,10 +82,10 @@ export class DataServiceService {
 
   }
   // Collect the complete game of team from service squiggle api
-  getCompletes(): Observable<Complete[]>{
+  getCompletes(): Observable<Complete[]> {
 
     return this.http.get('https://api.squiggle.com.au/?q=games;year=2019;complete=100').pipe(
-      map((data:any) => data.games.map((item:any)=>new Complete(
+      map((data: any) => data.games.map((item: any) => new Complete(
         item.complete,
         item.is_grand_final,
         item.tz,
@@ -113,10 +113,10 @@ export class DataServiceService {
 
   }
 
-  getSource(): Observable<Source[]>{
+  getSource(): Observable<Source[]> {
 
     return this.http.get('https://api.squiggle.com.au/?q=sources').pipe(
-      map((data:any) => data.sources.map((item:any)=>new Source(
+      map((data: any) => data.sources.map((item: any) => new Source(
         item.id,
         item.name,
         item.url,
@@ -125,10 +125,10 @@ export class DataServiceService {
     );
 
   }
-  getStanding(): Observable<Standing[]>{
+  getStanding(): Observable<Standing[]> {
 
     return this.http.get('https://api.squiggle.com.au/?q=standings').pipe(
-      map((data:any) => data.standings.map((item:any)=>new Standing(
+      map((data: any) => data.standings.map((item: any) => new Standing(
         item.draws,
         item.wins,
         item.abc,
@@ -144,10 +144,10 @@ export class DataServiceService {
         item.name,
         item.played,
         item.goals_against,
-      
+
       )))
     );
 
   }
-  
+
 }

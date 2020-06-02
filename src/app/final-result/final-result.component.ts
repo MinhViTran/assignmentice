@@ -11,25 +11,25 @@ import { Complete } from '../complete';
 export class FinalResultComponent implements OnInit {
   id: number;
   private sub: any;
-  completes:Complete[];
+  completes: Complete[];
 
   constructor(private route: ActivatedRoute, private dataService: DataServiceService) { }
 
-  
+
   ngOnInit() {
     //tranfer string ID to number
     this.sub = this.route.params.subscribe(params => {
-      this.id = +params['id']; 
-   });
+      this.id = +params['id'];
+    });
 
-   this.getApi();
+    this.getApi();
   }
   //Collect the API of team from data service 
   getApi(): void {
-    this.dataService.getCompletes().subscribe(temp => { 
+    this.dataService.getCompletes().subscribe(temp => {
       this.completes = temp.filter((team) => (team.hteamid === this.id || team.ateamid === this.id));
 
-    }); 
+    });
   }
   ngOnDestroy() {
     this.sub.unsubscribe();

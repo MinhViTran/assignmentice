@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Team} from '../team';
+import { Team } from '../team';
 import { DataServiceService } from '../data-service.service';
 
 
@@ -10,7 +10,7 @@ import { DataServiceService } from '../data-service.service';
 })
 export class ListTeamComponent implements OnInit {
 
-  teams:Team[];
+  teams: Team[];
   constructor(
     private dataService: DataServiceService) { }
 
@@ -19,7 +19,7 @@ export class ListTeamComponent implements OnInit {
   }
   //get Api  of Team from dataService
   getListTeams(): void {
-    this.dataService.getTeams().subscribe(temp => { this.teams = temp;});
+    this.dataService.getTeams().subscribe(temp => { this.teams = temp; });
   }
 
 }

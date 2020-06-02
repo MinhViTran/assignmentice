@@ -13,22 +13,22 @@ export class ResultComponent implements OnInit {
   constructor(private route: ActivatedRoute, private dataService: DataServiceService) { }
   id: number;
   private sub: any;
-  nonCompletes:NonComplete[];
+  nonCompletes: NonComplete[];
 
   //get Api of nonCompletes from dataService
   getApi(): void {
-    this.dataService.getNonCompletes().subscribe(temp => { 
+    this.dataService.getNonCompletes().subscribe(temp => {
       this.nonCompletes = temp.filter((team) => (team.hteamid === this.id || team.ateamid === this.id));
 
-    }); 
+    });
   }
   ngOnInit() {
     //tranfer string Id to number
     this.sub = this.route.params.subscribe(params => {
-       this.id = +params['id'];
+      this.id = +params['id'];
     });
 
-   this.getApi();
+    this.getApi();
 
   }
 

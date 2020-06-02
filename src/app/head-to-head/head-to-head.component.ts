@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { DataServiceService } from '../data-service.service';
 import { NonComplete } from '../nonComplete';
@@ -10,31 +10,32 @@ import { NonComplete } from '../nonComplete';
   styleUrls: ['./head-to-head.component.css']
 })
 export class HeadToHeadComponent implements OnInit {
-  
+
   id: number;
-  hId:number;
+  hId: number;
   private sub: any;
   dontMatch: string;
-  nonCompletes:NonComplete[];
-  
+  nonCompletes: NonComplete[];
+
   constructor(private route: ActivatedRoute, private dataService: DataServiceService) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       //tranfer the string ID and hID to number
-      this.id = +params['id']; 
-      this.hId = +params['hId']; 
-   });
+      this.id = +params['id'];
+      this.hId = +params['hId'];
+    });
 
-   this.getApi();
+    this.getApi();
 
   }
   //collect the aId and hId from dataService to create Head to head team 
   getApi(): void {
-    this.dataService.getNonCompletes().subscribe(temp => { 
-      this.nonCompletes = temp.filter((team) => ((team.hteamid === this.id && team.ateamid === this.hId) || (team.ateamid === this.id && team.hteamid === this.hId)));
-      if(!this.nonCompletes.length) this.dontMatch = "Don't have match bettwen two team";
-    }); 
+    this.dataService.getNonCompletes().subscribe(temp => {
+      this.nonCompletes = temp.filter((team) => ((team.hteamid === this.id && team.ateamid === this.hId)
+        || (team.ateamid === this.id && team.hteamid === this.hId)));
+      if (!this.nonCompletes.length) this.dontMatch = "Don't have match bettwen two team";
+    });
   }
 
 

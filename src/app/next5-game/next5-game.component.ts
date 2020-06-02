@@ -12,24 +12,24 @@ import { NonComplete } from '../nonComplete';
 export class Next5GameComponent implements OnInit {
   id: number;
   private sub: any;
-  nonCompletes:NonComplete[];
+  nonCompletes: NonComplete[];
 
   //get Api of nonCompletes from dataService 
   constructor(private route: ActivatedRoute, private dataService: DataServiceService) { }
   getApi(): void {
-    this.dataService.getNonCompletes().subscribe(temp => { 
-      this.nonCompletes = temp.filter((team) => (team.hteamid === this.id || team.ateamid === this.id)).slice(0,5);
+    this.dataService.getNonCompletes().subscribe(temp => {
+      this.nonCompletes = temp.filter((team) => (team.hteamid === this.id || team.ateamid === this.id)).slice(0, 5);
 
-    }); 
+    });
   }
 
   ngOnInit() {
-    //tranfer String Id to number
+    //tranfer string Id to number
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
-   });
+    });
 
-  this.getApi();
+    this.getApi();
 
   }
   ngOnDestroy() {

@@ -11,17 +11,17 @@ import { DataServiceService } from '../data-service.service';
 export class HeadTeamComponent implements OnInit {
   id: number;
   private sub: any;
-  teams:Team[];
+  teams: Team[];
 
   constructor(private route: ActivatedRoute, private dataService: DataServiceService) { }
 
   ngOnInit() {
     //tranfer string ID to number
     this.sub = this.route.params.subscribe(params => {
-      this.id = +params['id']; 
-   });
+      this.id = +params['id'];
+    });
 
-   this.getTeams();
+    this.getTeams();
   }
   //Collect the ID from dataservice 
   getTeams(): void {

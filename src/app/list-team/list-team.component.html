@@ -1,9 +1,9 @@
-<div class="container-fluid" >
-  <h2 class="text-center font-weight-bold text-uppercase text-white " 
-  style="background-color: rgba(2,52,125,0.9); height: 100px; line-height: 90px;">
-    <i class="fa fa-user-circle" aria-hidden="true"></i> 
-     AFL team in 2020
-    </h2>
+<div class="container-fluid">
+  <h2 class="text-center font-weight-bold text-uppercase text-white "
+    style="background-color: rgba(2,52,125,0.9); height: 100px; line-height: 90px;">
+    <i class="fa fa-user-circle" aria-hidden="true"></i>
+    AFL team in 2020
+  </h2>
   <br>
   <table class="table table-borderless text-center">
     <thead style="color: rgb(2,60,145);">
@@ -15,11 +15,11 @@
     </thead>
     <tbody>
       <br>
-      <tr *ngFor = " let team of teams">
+      <tr *ngFor=" let team of teams">
         <td scope="row">{{team.id}}</td>
         <td>{{team.name}}</td>
         <td>
-          <a class="btn btn-outline-primary" routerLink = "/teams/{{team.id}}">Detail</a>
+          <a class="btn btn-outline-primary" routerLink="/teams/{{team.id}}">Detail</a>
         </td>
       </tr>
     </tbody>

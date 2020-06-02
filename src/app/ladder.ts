@@ -11,7 +11,7 @@ export class Ladder {
         public source: string,
         public round: number,
         public percentage: DoubleRange,
-        public teamid: string     
-       
-        ) {}
+        public teamid: string
+
+    ) { }
 }

@@ -23,6 +23,9 @@ import { LadderComponent } from './ladder/ladder.component';
 import { SourceComponent } from './source/source.component';
 import { StandingComponent } from './standing/standing.component';
 import { SponsorComponent } from './sponsor/sponsor.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { AflAdminComponent } from './afl-admin/afl-admin.component';
+import { AflRulesComponent } from './afl-rules/afl-rules.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { SponsorComponent } from './sponsor/sponsor.component';
     SourceComponent,
     StandingComponent,
     SponsorComponent,
+    AboutUsComponent,
+    AflAdminComponent,
+    AflRulesComponent,
  
     
   ],

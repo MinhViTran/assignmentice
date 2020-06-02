@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Source } from '../souce';
-import { DataServiceService} from '../data-service.service';
+import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-source',
@@ -17,8 +17,8 @@ export class SourceComponent implements OnInit {
     this.getSource();
   }
   //get Api of Source from dataService
-  getSource(): void{
-    this.dataService.getSource().subscribe(temp =>{this.source = temp;});
+  getSource(): void {
+    this.dataService.getSource().subscribe(temp => { this.source = temp; });
   }
 
 }
